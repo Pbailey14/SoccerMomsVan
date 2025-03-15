@@ -2,14 +2,17 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    public int playerNumber; // This should now appear in the Inspector
+    public int playerNumber; // Assign in Inspector
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ball")) // Ensure the ball has the tag "Ball"
+        if (collision.CompareTag("Ball"))
         {
-            Debug.Log("Goal scored by Player " + playerNumber);
-            collision.GetComponent<BallController>().ResetBall();
+            BallController ball = collision.GetComponent<BallController>();
+            if (ball != null)
+            {
+                ball.ResetBall();
+            }
         }
     }
 }
