@@ -7,13 +7,13 @@ public class BallController : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>(); // Gets the Rigidbody2D component
+        rb = GetComponent<Rigidbody2D>();
         ResetBall();
     }
 
-    void ResetBall()
+    public void ResetBall()
     {
-        transform.position = Vector2.zero; // Move ball to center
-        rb.linearVelocity = new Vector2(Random.Range(-1f, 1f), Random.Range(-0.5f, 0.5f)) * speed; // Launch ball in random direction
+        transform.position = Vector2.zero; // Moves ball to the center
+        rb.linearVelocity = new Vector2(Random.Range(-1f, 1f), Random.Range(-0.5f, 0.5f)) * speed; // Starts ball movement
     }
 }
